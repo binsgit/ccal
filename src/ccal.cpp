@@ -57,7 +57,7 @@ unsigned short int daysinmonth[12] = {31, 28, 31, 30, 31, 30,
                                       31, 31, 30, 31, 30, 31};
 static char tiangan[10][5] = {"Jia", "Yi", "Bing", "Ding", "Wu",
                               "Ji", "Geng", "Xin", "Ren", "Gui"};
-static char dizhi[12][5] = {"Zi", "Chou", "Yin", "Mou", "Chen", "Si",
+static char dizhi[12][5] = {"Zi", "Chou", "Yin", "Mao", "Chen", "Si",
                             "Wu", "Wei", "Shen", "You", "Xu", "Hai"};
 extern char GBjieqi[24][7];
 extern char B5jieqi[24][7];
