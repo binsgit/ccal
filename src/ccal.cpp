@@ -985,7 +985,7 @@ bool ProcessArg(int argc, char** argv, short int& year, short int& month,
         return false;
     pmode = 0;
     bSingle = true;
-    nEncoding = 'a';
+    nEncoding = 'u';
     bool bIsUTF8 = false;
     if (argc == 1)
         return true;
@@ -1026,6 +1026,8 @@ bool ProcessArg(int argc, char** argv, short int& year, short int& month,
             nEncoding = 'b';
         else if (argv[i][1] == 'u')
             bIsUTF8 = true;
+        else if (argv[i][1] == 'a')
+            nEncoding = 'a';
         else
         {
             printf("ccal: Unrecognized option.\n");
@@ -1044,7 +1046,7 @@ bool ProcessArg(int argc, char** argv, short int& year, short int& month,
     if (pmode != 0)
     {
         if (nEncoding == 'a')
-            nEncoding = 'g';
+            nEncoding = 'u';
     }
     return true;
 }
@@ -1062,10 +1064,11 @@ int main(int argc, char** argv)
     if (!ProcessArg(argc, argv, year, month, pmode, bSingle, nEncoding))
     {
         printf("ccal version %s: Displays Chinese calendar (Gregorian with Chinese dates).\n", versionstr);
-        printf("Usage: ccal [-t|-p|-x] [-g|-b] [-u] [[<month>] <year>].\n");
+        printf("Usage: ccal [-t|-p|-x] [-a|-g|-b] [-u] [[<month>] <year>].\n");
         printf("\t-t:\tGenerates HTML table output.\n");
         printf("\t-p:\tGenerates encapsulated PostScript output.\n");
         printf("\t-x:\tGenerates XML output.\n");
+        printf("\t-a:\tGenerates English output.\n");
         printf("\t-g:\tGenerates simplified Chinese output.\n");
         printf("\t-b:\tGenerates traditional Chinese output.\n");
         printf("\t-u:\tUses UTF-8 rather than GB or Big5 for Chinese output.\n");
